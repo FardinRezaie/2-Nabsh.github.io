@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta dir="rtl">
+	<meta charset="UTF-8" />
+	<meta dir="rtl" />
+	<meta name="description" content="Delta Website" />
+	<meta name="keywords" content="HTML, CSS" />
+	<meta name="author" content="Fardin Rezaie" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="style/style.css" rel="stylesheet" />
+	<link rel="stylesheet" href="style/all.css" />
+
+	<title>2نبش راهی سریع و مطمئن برای خانه دار شدن | 2نبش</title>
+</head>
+
+<script>
+	/***** Nav *****/
+	document.addEventListener('scroll', function () {
+		const navbar = document.querySelector('nav');
+		if (window.scrollY > 150) {
+			navbar.classList.add('scrolled');
+		} else {
+			navbar.classList.remove('scrolled');
+		}
+	});
+
+	/***** counter *****/
+	// script.js
+	document.addEventListener('scroll', function () {
+		const counters = document.querySelectorAll('.counter');
+
+		counters.forEach(counter => {
+			const sectionTop = counter.getBoundingClientRect().top;
+			const viewportHeight = window.innerHeight;
+
+			if (sectionTop < viewportHeight && !counter.classList.contains('counted')) {
+				startCountUp(counter);
+				counter.classList.add('counted');
+			}
+		});
+	});
+
+	function startCountUp(element) {
+		const target = parseInt(element.getAttribute('data-target'));
+		let current = 0;
+		const interval = 1000 / 80; // roughly 80 frames per second
+		const increment = target / (2000 / interval); // Adjust duration by changing 2000
+
+		function updateCounter() {
+			current += increment;
+			if (current >= target) {
+				element.textContent = formatNumber(target) + '+';
+			} else {
+				element.textContent = formatNumber(Math.round(current)) + '+';
+				requestAnimationFrame(updateCounter);
+			}
+		}
+
+		updateCounter();
+	}
+
+	function formatNumber(num) {
+		return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	}
+
+</script>
+
+<body>
+	<!-- Navigation part -->
+	<nav>
+		<section class="container">
+			<section class="navbar">
+				<section class="nav-right">
+					<a href="#"><img src="images/2nabsh.svg" alt="2nabsh logo"></a>
+					<ul>
+						<li><a href="#">خرید خانه</a></li>
+						<li><a href="#">اجاره خانه</a></li>
+						<li><a href="#">مشاورین املاک</a></li>
+						<li><a href="#">بلاگ 2نبش</a></li>
+						<li><a href="#">خدمات 2نبش</a></li>
+					</ul>
+				</section>
+				<section class="nav-left">
+					<a href="#">ورود یا ثبت نام</a>
+					<a href="#">
+						<i class="fa-solid fa-plus"></i>
+						<p>ثبت آگهی رایگان</p>
+					</a>
+				</section>
+			</section>
+		</section>
+	</nav>
+	<!-- End Navigation -->
+	<!-- Header section -->
+	<header >
+		<section class="container">
+			<!-- H1 Part -->
+			<section class="header-part">
+				<section>
+					<h1>2نبش، راهی سریع و مطمئن</h1>
+					<h1>برای خانه دار شدن</h1>
+				</section>
+				<p>
+					در ۲نبش بین صدها هزار آگهی ثبت‌شده جست‌وجو کنید، به سرعت ملک مورد نظرتون رو پیدا کنید و برای انجام
+					معامله‌ای مطمئن، با مشاورین املاک معتمد و متخصص شهرتون در ارتباط باشید.
+				</p>
+				<button><a href="#jump">از اینجا شروع کنید</a></button>
+			</section>
+			<!-- End H1 -->
+		</section>
+	</header>
+	<!-- End Header -->
+
+	<!-- Main part -->
+	<main class="container" id="jump">
+		<!-- City part -->
+		<section class="city">
+			<h2>شهر موردنظرتون رو انتخاب کنید</h2>
+			<section class="cities">
+				<a href="#">
+					<img src="images/azadi-tower.png" alt="Azadi Tower" style="width: 80%; height: auto;"
+						class="img-city">
+					<img src="images/azadi-tower-white.png" alt="Azadi Tower" style="width: 80%; height: auto;"
+						class="img-city">
+					<div>
+						<p>تهران</p>
+						<i class="fa-solid fa-angle-left"></i>
+					</div>
+				</a>
+				<a href="#">
+					<img src="images/Imam-reza.png" alt="Azadi Tower" style="width: 80%; height: auto;">
+					<img src="images/Imam-reza-white.png" alt="Azadi Tower" style="width: 80%; height: auto;">
+					<div>
+						<p>مشهد</p>
+						<i class="fa-solid fa-angle-left"></i>
+					</div>
+				</a>
+				<a href="#">
+					<img src="images/Shamal.png" alt="Azadi Tower" style="width: 100%; height: auto;">
+					<img src="images/Shamal-white.png" alt="Azadi Tower" style="width: 100%; height: auto;">
+					<div>
+						<p>شمال</p>
+						<i class="fa-solid fa-angle-left"></i>
+					</div>
+				</a>
+				<a href="#">
+					<img src="images/Iran-map.png" alt="Azadi Tower" style="width: 70%; height: auto;">
+					<img src="images/Iran-map-white.png" alt="Azadi Tower" style="width: 70%; height: auto;">
+					<div>
+						<p>سایر شهرها</p>
+						<i class="fa-solid fa-angle-left"></i>
+					</div>
+				</a>
+			</section>
+		</section>
+		<!-- End City -->
+
+		<!-- Other city part -->
+		<section class="other-city">
+			<section class="other-right">
+				<h2>خرید، رهن و اجاره در شهرهای مختلف ایران</h2>
+				<p>
+					ما در 2نبش به اهمیت دو اصل اطمینان و سرعت در معاملات املاک باور داریم و با داشتن 11 سال تجربه فعالیت
+					در بازار املاک و جذب بیش از 25000 مشاور املاک در خراسان، تهران و شمال تلاش می کنیم تا تغییری بزرگ در
+					معاملات املاک کشور رقم بزنیم. در 2نبش با اطمینان بین آگهی‌ها جست‌وجو کنید و به سرعت ملک مورد نظرتون
+					رو پیدا کنید
+				</p>
+			</section>
+			<section class="other-left">
+				<img src="images/iran.png" alt="Iran logo">
+			</section>
+		</section>
+		<!-- End Other city -->
+
+		<!-- Numbers part -->
+		<section class="numbers">
+			<section class="counter-section">
+				<div class="counter" data-target="1000000">0+</div>
+				<p>ملک آگهی شده در 2نبش</p>
+			</section>
+			<section class="counter-section">
+				<div class="counter" data-target="11000">0+</div>
+				<p>مشاور فعال 2نبش در سرتاسر ایران</p>
+			</section>
+			<section class="counter-section">
+				<div class="counter" data-target="2000000">0+</div>
+				<p>بازدید ماهانه از 2نبش</p>
+			</section>
+		</section>
+
+		<!-- End Numbers -->
+
+		<!-- Agent part -->
+		<section class="Agent-part">
+			<section class="agent-right">
+				<img src="images/realtor.jpg" alt="">
+			</section>
+			<section class="agent-left">
+				<h2>مشاور املاک هستید؟</h2>
+				<p>
+					۲نبش باعث توسعۀ کسب‌وکار بیش از ۱۵۰۰۰ مشاور املاک متخصص شده. شانس‌تون رو در پیوستن به این مجموعه و
+					توسعۀ کسب‌وکارتون امتحان کنید.
+				</p>
+				<a href="#">مشاهده خدمات</a>
+			</section>
+		</section>
+		<!-- End Agent -->
+
+		<!-- Customers part -->
+		<section class="customers">
+			<h2>برخی از مشتریان 2نبش</h2>
+			<img src="images/realtors_logo.jpg" alt="">
+		</section>
+		<!-- End Customers -->
+
+		<!-- Owner part -->
+		<section class="Owner-part">
+			<section class="owner-right">
+				<img src="images/owner.jpg" alt="Owner Photo">
+			</section>
+			<section class="owner-left">
+				<h2>مالک هستید؟</h2>
+				<p>
+					با چند کلیک ساده، ملک‌تون رو به‌صورت رایگان در ۲نبش آگهی و در سریع‌ترین زمان ممکن معامله کنید.
+				</p>
+				<a href="#">ثبت رایگان آگهی</a>
+			</section>
+		</section>
+		<!-- End Numbers -->
+	</main>
+	<!-- End Main -->
+
+	<!-- Footer part -->
+	<footer>
+		<section class="container">
+			<section class="footer-top">
+				<section class="footer-right">
+					<img src="images/2nabsh.svg" alt="2nabsh logo">
+					<h4>راهی سریع و مطمئن برای خانه دار شدن</h4>
+					<p>
+						در ۲نبش بین صدها هزار آگهی ثبت‌شده جست‌وجو کنید، به سرعت ملک مورد نظرتون رو پیدا کنید و برای
+						انجام معامله‌ای مطمئن، با مشاورین املاک معتمد و متخصص شهرتون در ارتباط باشید.
+					</p>
+					<img src="images/samandehi.png" alt="samandehi logo">
+				</section>
+				<section class="footer-left">
+					<h4>همراه با 2نبش</h4>
+					<a href="#">ثبت رایگان آگهی ملک</a>
+					<a href="#">سوال ملکی دارید؟</a>
+					<a href="#">اخبار مسکن</a>
+					<a href="#">وبلاگ 2نبش</a>
+					<a href="#">نقشه سایت</a>
+					<a href="#">خدمات 2نبش</a>
+					<a href="#">درباره 2نبش</a>
+					<a href="#">ظوابط و قوانین</a>
+					<a href="#">تماس با 2نبش</a>
+					<a href="#">مناطق تهران</a>
+				</section>
+				<section class="footer-left">
+					<h4>لینک های منتخب</h4>
+					<a href="#">خرید خانه در تهران</a>
+					<a href="#">املاک تهران</a>
+					<a href="#">خرید آپارتمان در مشهد</a>
+					<a href="#">املاک مشهد</a>
+					<a href="#">خرید ویلا در شمال</a>
+				</section>
+			</section>
+			<hr>
+			<section class="footer-bottom">
+				<section>
+					<i class="fa-regular fa-copyright"></i>
+					<p>2نبش 1401
+						|
+						فناوران پیشتاز مسکن فردا</p>
+				</section>
+				<a href="#">
+					<i class="fa-brands fa-instagram"></i>
+					<p>اینستاگرام 2نبش</p>
+				</a>
+			</section>
+		</section>
+	</footer>
+	<!-- End Footer -->
+</body>
+
+</html>
